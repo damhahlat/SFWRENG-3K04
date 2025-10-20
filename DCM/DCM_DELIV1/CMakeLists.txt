@@ -4,17 +4,25 @@ project(DCM_Qt LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Make CMake run Qt's code generators automatically (moc)
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC OFF)
-set(CMAKE_AUTORCC OFF)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
 
 add_executable(DCM_Qt
     main.cpp
     mainwindow.cpp
-    mainwindow.h   # list the header so AUTOMOC sees Q_OBJECT
+    mainwindow.h
+    loginwindow.h
+    loginwindow.cpp
+    loginwindow.ui
+    database.h
+    database.cpp
+    mainwindow.ui
+    parameterform.h parameterform.cpp
+    parameterform.ui
 )
 
-target_link_libraries(DCM_Qt PRIVATE Qt6::Widgets)
+target_link_libraries(DCM_Qt PRIVATE Qt6::Widgets Qt6::Sql)
+qt_finalize_executable(DCM_Qt)
