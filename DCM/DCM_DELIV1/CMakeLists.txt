@@ -8,7 +8,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Sql SerialPort)
 
 add_executable(DCM_Qt
     main.cpp
@@ -22,7 +22,11 @@ add_executable(DCM_Qt
     mainwindow.ui
     parameterform.h parameterform.cpp
     parameterform.ui
+
+    serialmanager.cpp
+    serialmanager.h
+    serialtestdialog.h serialtestdialog.cpp serialtestdialog.ui
 )
 
-target_link_libraries(DCM_Qt PRIVATE Qt6::Widgets Qt6::Sql)
+target_link_libraries(DCM_Qt PRIVATE Qt6::Widgets Qt6::Sql Qt6::SerialPort)
 qt_finalize_executable(DCM_Qt)

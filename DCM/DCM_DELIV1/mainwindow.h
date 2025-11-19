@@ -3,6 +3,9 @@
 // Include Qt's MainWindow library, which will be built upon.
 #include <QMainWindow>
 
+// Include the serial test class we wrote
+#include "serialtestdialog.h"
+
 // Declarations for the parameter form and the egram, which is present in D1 but hasn't been implemented yet.
 class ParameterForm;
 class EgramWidget;
@@ -19,6 +22,9 @@ public:
 
 // These are options that are present in the browser at the top of the design.
 private slots:
+
+    // Serial testing
+    void on_actionSerialTest_triggered();
 
     // File menu
     void onNewPatient();

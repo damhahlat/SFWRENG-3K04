@@ -235,3 +235,8 @@ void MainWindow::onOpenDbFolder() {
     const QString folder = QFileInfo(Database::path()).absolutePath();
     QDesktopServices::openUrl(QUrl::fromLocalFile(folder));
 }
+
+void MainWindow::on_actionSerialTest_triggered() {
+    SerialTestDialog dlg(this);
+    dlg.exec();
+}
