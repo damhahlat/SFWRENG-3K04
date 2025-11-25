@@ -2,58 +2,374 @@
 <ui version="4.0">
  <class>ParameterForm</class>
  <widget class="QWidget" name="ParameterForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>450</height>
+   </rect>
+  </property>
   <layout class="QVBoxLayout" name="outerLayout">
    <item>
     <layout class="QFormLayout" name="formLayout">
-     <!-- Mode -->
-     <item row="0" column="0"><widget class="QLabel" name="modeLbl"><property name="text"><string>Mode</string></property></widget></item>
-     <item row="0" column="1">
-      <widget class="QComboBox" name="modeCombo">
-       <item><property name="text"><string>AOO</string></property></item>
-       <item><property name="text"><string>VOO</string></property></item>
-       <item><property name="text"><string>AAI</string></property></item>
-       <item><property name="text"><string>VVI</string></property></item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="modeLabel">
+       <property name="text">
+        <string>Mode</string>
+       </property>
       </widget>
      </item>
-
-     <!-- Rate limits -->
-     <item row="1" column="0"><widget class="QLabel" name="lrlLbl"><property name="text"><string>LRL (bpm)</string></property></widget></item>
-     <item row="1" column="1"><widget class="QSpinBox" name="lrlSpin"><property name="minimum"><number>30</number></property><property name="maximum"><number>175</number></property><property name="value"><number>60</number></property></widget></item>
-
-     <item row="2" column="0"><widget class="QLabel" name="urlLbl"><property name="text"><string>URL (bpm)</string></property></widget></item>
-     <item row="2" column="1"><widget class="QSpinBox" name="urlSpin"><property name="minimum"><number>50</number></property><property name="maximum"><number>200</number></property><property name="value"><number>120</number></property></widget></item>
-
-     <!-- Atrial -->
-     <item row="3" column="0"><widget class="QLabel" name="aAmpLbl"><property name="text"><string>Atrial Amplitude (V)</string></property></widget></item>
-     <item row="3" column="1"><widget class="QDoubleSpinBox" name="aAmpSpin"><property name="minimum"><double>0.0</double></property><property name="maximum"><double>7.0</double></property><property name="singleStep"><double>0.1</double></property><property name="value"><double>3.5</double></property></widget></item>
-
-     <item row="4" column="0"><widget class="QLabel" name="aPwLbl"><property name="text"><string>Atrial Pulse Width (ms)</string></property></widget></item>
-     <item row="4" column="1"><widget class="QDoubleSpinBox" name="aPwSpin"><property name="minimum"><double>0.05</double></property><property name="maximum"><double>1.90</double></property><property name="singleStep"><double>0.05</double></property><property name="value"><double>0.4</double></property></widget></item>
-
-     <!-- Ventricular -->
-     <item row="5" column="0"><widget class="QLabel" name="vAmpLbl"><property name="text"><string>Ventricular Amplitude (V)</string></property></widget></item>
-     <item row="5" column="1"><widget class="QDoubleSpinBox" name="vAmpSpin"><property name="minimum"><double>0.0</double></property><property name="maximum"><double>7.0</double></property><property name="singleStep"><double>0.1</double></property><property name="value"><double>3.5</double></property></widget></item>
-
-     <item row="6" column="0"><widget class="QLabel" name="vPwLbl"><property name="text"><string>Ventricular Pulse Width (ms)</string></property></widget></item>
-     <item row="6" column="1"><widget class="QDoubleSpinBox" name="vPwSpin"><property name="minimum"><double>0.05</double></property><property name="maximum"><double>1.90</double></property><property name="singleStep"><double>0.05</double></property><property name="value"><double>0.4</double></property></widget></item>
-
-     <!-- Refractory -->
-     <item row="7" column="0"><widget class="QLabel" name="arpLbl"><property name="text"><string>ARP (ms)</string></property></widget></item>
-     <item row="7" column="1"><widget class="QSpinBox" name="arpSpin"><property name="minimum"><number>150</number></property><property name="maximum"><number>500</number></property><property name="value"><number>250</number></property></widget></item>
-
-     <item row="8" column="0"><widget class="QLabel" name="vrpLbl"><property name="text"><string>VRP (ms)</string></property></widget></item>
-     <item row="8" column="1"><widget class="QSpinBox" name="vrpSpin"><property name="minimum"><number>150</number></property><property name="maximum"><number>500</number></property><property name="value"><number>250</number></property></widget></item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="modeCombo">
+       <item>
+        <property name="text">
+         <string>AOO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>VOO</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AAI</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>VVI</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AOOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>VOOR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AAIR</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>VVIR</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lrlLabel">
+       <property name="text">
+        <string>Lower Rate Limit (ppm)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="lrlSpin">
+       <property name="minimum">
+        <number>30</number>
+       </property>
+       <property name="maximum">
+        <number>175</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>60</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="urlLabel">
+       <property name="text">
+        <string>Upper Rate Limit (ppm)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="urlSpin">
+       <property name="minimum">
+        <number>50</number>
+       </property>
+       <property name="maximum">
+        <number>175</number>
+       </property>
+       <property name="singleStep">
+        <number>5</number>
+       </property>
+       <property name="value">
+        <number>120</number>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="aAmpLabel">
+       <property name="text">
+        <string>Atrial Amplitude (V)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QDoubleSpinBox" name="aAmpSpin">
+       <property name="decimals">
+        <number>1</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>5.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
+       </property>
+       <property name="value">
+        <double>5.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="aPwLabel">
+       <property name="text">
+        <string>Atrial Pulse Width (ms)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QDoubleSpinBox" name="aPwSpin">
+       <property name="decimals">
+        <number>0</number>
+       </property>
+       <property name="minimum">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>30.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>1.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="vAmpLabel">
+       <property name="text">
+        <string>Ventricular Amplitude (V)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QDoubleSpinBox" name="vAmpSpin">
+       <property name="decimals">
+        <number>1</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>5.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
+       </property>
+       <property name="value">
+        <double>5.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="vPwLabel">
+       <property name="text">
+        <string>Ventricular Pulse Width (ms)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QDoubleSpinBox" name="vPwSpin">
+       <property name="decimals">
+        <number>0</number>
+       </property>
+       <property name="minimum">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>30.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>1.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="aSensLabel">
+       <property name="text">
+        <string>Atrial Sensitivity (V)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QDoubleSpinBox" name="aSensSpin">
+       <property name="decimals">
+        <number>1</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>5.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
+       </property>
+       <property name="value">
+        <double>2.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="vSensLabel">
+       <property name="text">
+        <string>Ventricular Sensitivity (V)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="QDoubleSpinBox" name="vSensSpin">
+       <property name="decimals">
+        <number>1</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>5.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
+       </property>
+       <property name="value">
+        <double>2.500000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QLabel" name="arpLabel">
+       <property name="text">
+        <string>ARP (ms)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="1">
+      <widget class="QSpinBox" name="arpSpin">
+       <property name="minimum">
+        <number>150</number>
+       </property>
+       <property name="maximum">
+        <number>500</number>
+       </property>
+       <property name="singleStep">
+        <number>10</number>
+       </property>
+       <property name="value">
+        <number>250</number>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <widget class="QLabel" name="vrpLabel">
+       <property name="text">
+        <string>VRP (ms)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="1">
+      <widget class="QSpinBox" name="vrpSpin">
+       <property name="minimum">
+        <number>150</number>
+       </property>
+       <property name="maximum">
+        <number>500</number>
+       </property>
+       <property name="singleStep">
+        <number>10</number>
+       </property>
+       <property name="value">
+        <number>320</number>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
-
-   <!-- Buttons row -->
    <item>
     <layout class="QHBoxLayout" name="buttonRow">
-     <item><spacer name="btnLeft"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
-     <item><widget class="QPushButton" name="saveBtn"><property name="text"><string>Save</string></property></widget></item>
-     <item><widget class="QPushButton" name="loadBtn"><property name="text"><string>Load</string></property></widget></item>
-     <item><widget class="QPushButton" name="clearBtn"><property name="text"><string>Clear</string></property></widget></item>
-     <item><spacer name="btnRight"><property name="orientation"><enum>Qt::Horizontal</enum></property><property name="sizeHint" stdset="0"><size><width>40</width><height>20</height></size></property></spacer></item>
+     <item>
+      <widget class="QPushButton" name="saveBtn">
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="loadBtn">
+       <property name="text">
+        <string>Load</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="clearBtn">
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="btnSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="sendBtn">
+       <property name="text">
+        <string>Send to Device</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #28a745; color: white; font-weight: bold; padding: 5px 15px;</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="stopBtn">
+       <property name="text">
+        <string>Stop / Disconnect</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: #dc3545; color: white; font-weight: bold; padding: 5px 15px;</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
